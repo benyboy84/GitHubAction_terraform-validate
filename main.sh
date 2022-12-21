@@ -94,7 +94,12 @@ else
             # Add validate failure comment to PR.
             PR_PAYLOAD=$(echo '{}' | jq --arg body "$PR_COMMENT" '.body = $body')
             echo "Terraform Validate | INFO     | Adding validate failure comment to PR."
-            curl -sS -X POST -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -H "$CONTENT_HEADER" -d "$PR_PAYLOAD" -L "$PR_COMMENTS_URL" > /dev/null
+            {
+                curl -sS -X POST -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -H "$CONTENT_HEADER" -d "$PR_PAYLOAD" -L "$PR_COMMENTS_URL" > /dev/null
+            } ||
+            {
+                echo "Terraform Validate | ERROR    | Unable to add validate failure comment in PR."
+            }
         fi
     fi
 fi
