@@ -63,7 +63,7 @@ fi
 if [[ "$GITHUB_EVENT_NAME" != "pull_request" && "$GITHUB_EVENT_NAME" != "issue_comment" ]]; then
     echo "Terraform Format | WARNING  | $GITHUB_EVENT_NAME event does not relate to a pull request."
     echo "Terraform Format | INFO     | Terraform validate output"
-    echo "$OUTPUT"
+    echo -e "$OUTPUT"
 else
     if [[ -z GITHUB_TOKEN ]]; then
         echo "Terraform Validate | WARNING  | GITHUB_TOKEN not defined. Pull request is not possible without a GitHub token."
