@@ -6,10 +6,12 @@ inputs:
   path:
     description: Path to the terraform configuration
     required: false
+    type: string
   workspace:
     description: Name of the workspace to use for the `terraform.workspace` value while validating.
     required: false
-    default: default
+    default: 'default'
+    type: string
 
 runs:
   using: "composite"
