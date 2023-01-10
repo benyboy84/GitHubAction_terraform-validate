@@ -8,7 +8,6 @@ This can be used to check that a configuration is valid before creating a plan.
 If the terraform configuration is not valid, the GitHub Action job failed.
 
 A comment will be added to the pull request with the output of the `terraform validate` in case of error.
-Can be removed by adding the input 'Comment' and set the value to false.
 
 ## Requirements
 
