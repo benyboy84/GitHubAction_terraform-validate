@@ -61,8 +61,8 @@ fi
 # Add comment if the action is call from a pull request.
 #if [[ "$GITHUB_EVENT_NAME" != "push" && "$GITHUB_EVENT_NAME" != "pull_request" && "$GITHUB_EVENT_NAME" != "issue_comment" && "$GITHUB_EVENT_NAME" != "pull_request_review_comment" && "$GITHUB_EVENT_NAME" != "pull_request_target" && "$GITHUB_EVENT_NAME" != "pull_request_review" ]]; then
 if [[ "$GITHUB_EVENT_NAME" != "pull_request" && "$GITHUB_EVENT_NAME" != "issue_comment" ]]; then
-    echo "Terraform Format | WARNING  | $GITHUB_EVENT_NAME event does not relate to a pull request."
-    echo "Terraform Format | INFO     | Terraform validate output"
+    echo "Terraform Validate | WARNING  | $GITHUB_EVENT_NAME event does not relate to a pull request."
+    echo "Terraform Validate | INFO     | Terraform validate output"
     echo -e "$OUTPUT"
 else
     if [[ -z GITHUB_TOKEN ]]; then
