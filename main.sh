@@ -66,7 +66,7 @@ if [[ "$GITHUB_EVENT_NAME" != "pull_request" && "$GITHUB_EVENT_NAME" != "issue_c
     echo -e "$OUTPUT"
 else
     if [[ -z GITHUB_TOKEN ]]; then
-        echo "Terraform Validate | WARNING  | GITHUB_TOKEN not defined. Pull request is not possible without a GitHub token."
+        echo "Terraform Validate | WARNING  | GITHUB_TOKEN not defined. Pull request comment is not possible without a GitHub token."
     else
         # Look for an existing validate PR comment and delete.
         echo "Terraform Validate | INFO     | Looking for an existing validate PR comment."
