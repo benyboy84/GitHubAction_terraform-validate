@@ -14,10 +14,10 @@ A comment will be added to the pull request with the output of the `terraform va
 * This GitHub Actions does not install `terraform`, so you have to install them in advance.
 
 ```yaml
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
-        with:
-          terraform_wrapper: false
+- name: Setup Terraform
+  uses: hashicorp/setup-terraform@v2
+  with:
+    terraform_wrapper: false
 ```
 
 ## Inputs
@@ -30,10 +30,10 @@ A comment will be added to the pull request with the output of the `terraform va
   - Optional
   - Default: The current directory
 
-```yaml
-        with:
-          Path: ./modules
-```
+  ```yaml
+  with:
+    Path: ./modules
+  ```
 
 * `workspace`
 
@@ -43,10 +43,10 @@ A comment will be added to the pull request with the output of the `terraform va
   - Optional
   - Default: default
 
-```yaml
-        with:
-          workspace: prod
-```
+  ```yaml
+  with:
+    workspace: prod
+  ```
 
 ## Environment Variables
 
