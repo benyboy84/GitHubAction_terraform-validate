@@ -30,6 +30,11 @@ A comment will be added to the pull request with the output of the `terraform va
   - Optional
   - Default: The current directory
 
+```yaml
+        with:
+          Path: ./modules
+```
+
 * `workspace`
 
   Terraform workspace to use for further operations. Note that for remote operations in Terraform Cloud/Enterprise, this is always `default`.
@@ -37,6 +42,11 @@ A comment will be added to the pull request with the output of the `terraform va
   - Type: string
   - Optional
   - Default: default
+
+```yaml
+        with:
+          workspace: prod
+```
 
 ## Environment Variables
 
@@ -72,16 +82,17 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3.0.2
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_wrapper: false
 
-      - name: terraform init
-        id: init
-        run: terraform init
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: terraform validate
         id: validate
-        uses: benyboy84/GitHubAction_terraform-validate@v1.0.0
+        uses: benyboy84/GitHubAction_terraform-validate@v1
         with:
           path: ./modules
           workspace: prod
